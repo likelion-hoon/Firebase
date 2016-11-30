@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "752971417519",
+    "firebase_url": "https://jonghoon-753d2.firebaseio.com",
+    "project_id": "jonghoon-753d2",
+    "storage_bucket": "jonghoon-753d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752971417519:android:106370a83dbb8e68",
+        "android_client_info": {
+          "package_name": "com.example.ljh.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752971417519-sjq324nsi6ggdrfaasoen622v636rbtf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ljh.firebase",
+            "certificate_hash": "63F4E4EE6B0E34AE882B4B740EC56EDF1F7A4214"
+          }
+        },
+        {
+          "client_id": "752971417519-uhqvucdc5lci3pn3mhq11dr7ig5i6h6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRAW-IQqAoI5fiykqStal9Mc6swhjL_g0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752971417519-uhqvucdc5lci3pn3mhq11dr7ig5i6h6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
