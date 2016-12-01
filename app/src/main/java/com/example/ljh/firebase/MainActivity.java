@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseStorage mFirebaseStorage;
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
+    private String season;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,25 +85,50 @@ public class MainActivity extends AppCompatActivity {
     // Storage에서 이미지 읽어서 표시하는 부분
     private void displayImage() {
         // Create a storage reference from our app
-        StorageReference storageRef = mFirebaseStorage.getReferenceFromUrl("gs://jonghoon-753d2.appspot.com/겨울.PNG");
-        storageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                Log.d(TAG, "getBytes Success");
-                // Use the bytes to display the image
+        if(season.equals("winter")) {
+            StorageReference storageRef = mFirebaseStorage.getReferenceFromUrl("gs://jonghoon-753d2.appspot.com/겨울.PNG");
+            storageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                @Override
+                public void onSuccess(byte[] bytes) {
+                    Log.d(TAG, "getBytes Success");
+                    // Use the bytes to display the image
 
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                ImageView iv = (ImageView)findViewById(R.id.imageView);
-                iv.setImageBitmap(bmp);
+                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    ImageView iv = (ImageView) findViewById(R.id.imageView1);
+                    iv.setImageBitmap(bmp);
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                Log.d(TAG, "getBytes Failed");
-            }
-        });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                    Log.d(TAG, "getBytes Failed");
+                }
+            });
+        }
+
+        else {
+            StorageReference storageRef1 = mFirebaseStorage.getReferenceFromUrl("gs://jonghoon-753d2.appspot.com/여름.PNG");
+
+            storageRef1.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                @Override
+                public void onSuccess(byte[] bytes) {
+                    Log.d(TAG, "getBytes Success");
+                    // Use the bytes to display the image
+
+                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    ImageView iv = (ImageView) findViewById(R.id.imageView1);
+                    iv.setImageBitmap(bmp);
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                    Log.d(TAG, "getBytes Failed");
+                }
+            });
+        }
     }
 
     // 설정을 읽는 부분
@@ -111,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.textView_cheat)).setText("cheat_enabled=" + cheat_enabled);
         long price = mFirebaseRemoteConfig.getLong("your_price");
         ((TextView)findViewById(R.id.textView_price)).setText("your_price is " + price);
+        season = mFirebaseRemoteConfig.getString("season");
+        ((TextView)findViewById(R.id.textView_season)).setText("My season is " + season);
     }
 
     // 설정을 로컬로 가져오는 부분

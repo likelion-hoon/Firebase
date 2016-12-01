@@ -5,8 +5,14 @@
         <key>your_price</key>
         <value>100</value>
     </entry>
+
     <entry>
         <key>cheat_enabled</key>
         <value>false</value>
+    </entry>
+
+    <entry>
+        <key>season</key>
+        <value>winter</value>
     </entry>
 </defaultsMap >
